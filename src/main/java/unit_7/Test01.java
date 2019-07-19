@@ -6,7 +6,7 @@ package unit_7;
     3. 构造一个数组，必须指定长度。*/
 
 
-class Man{
+class Man implements Comparable{ //Arrays.sort
     private int age;
     private int id;
     public Man(int id,int age) {
@@ -17,6 +17,17 @@ class Man{
     @Override
     public String toString() {
         return "Man [id=" + id + ", age=" + age + "]";
+    }
+//    Comparable接口的应用
+    public int compareTo(Object o) {
+        Man man = (Man) o;
+        if (this.age < man.age) {
+            return -1;
+        }
+        if (this.age > man.age) {
+            return 1;
+        }
+        return 0;
     }
 }
 

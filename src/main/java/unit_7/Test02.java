@@ -11,6 +11,7 @@ public class Test02 {
     public static void main(String[] args) {
         int[] b = {1, 2, 3}; // 静态初始化
 
+        // 动态初始化
         int[] a1 = new int[2];//动态初始化数组，先分配空间；
         a1[0] = 1;//给数组元素赋值；
         a1[1] = 2;//给数组元素赋值；

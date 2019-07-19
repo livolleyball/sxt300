@@ -58,7 +58,7 @@ public class TestPolym {
 
         //编写程序时，如果想调用运行时类型的方法，只能进行强制类型转换。
         // 否则通不过编译器的检查。
-        Dog dog = (Dog)a2;//向下需要强制类型转换
+        Dog dog = (Dog)a2;//向下需要强制类型转换 将 animal 转换成dog
         dog.seeDoor();
     }
 
