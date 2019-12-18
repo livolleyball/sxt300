@@ -11,5 +11,9 @@ public class ForceTypeConvert {
         int var6 = var4+4;
         System.out.println(var2);
         System.out.println(var6);
+        String ss="2.0";
+//        Integer ins=Integer.valueOf(ss);
+        Integer dous=Double.valueOf(ss).intValue();
+        System.out.println(dous);
     }
 }

@@ -18,7 +18,7 @@ public class bubbleSort {
         }
     }
     public static void main(String[] args){
-        int[] score = new int[]{12,5,6,-7,10};
+        int[] score = new int[]{12,5,6,6,-7,10};
         bubbleSort(score);
         System.out.println(Arrays.toString(score));
     }

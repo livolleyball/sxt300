@@ -1,0 +1,39 @@
+kafkacat -C -b kafkabroker -t adienTest2 -p 0 -o -2 -e
+
+1、查看kafka信息(kafkabroker表示kafka服务器的地址，下同）
+kafkacat -L -b kafkabroker
+
+2、消费者 
+a、订阅所有消息
+kafkacat -C -b kafkabroker -t topicname
+-- kafkacat -C -b kafkabroker -t adienTest2
+
+b、读取制指定个数的消息（可以查看kafka里是否有消息）
+kafkacat -C -b kafkabroker -t topicname -p 0 -o -个数 -e  
+
+3、生产者
+a、直接发送  按下enter键后，等待连接成功就可以发送消息了,ctrl+d 退出发送消息
+kafkacat -b kafkabroker -t topic  -P
+b、通过管道发送
+cat msg.txt |  kafkacat -b kafkabroker -t topic  -P
+
+4、转发消息 
+可以通过管道把接收到的消息转发到生产者
+kafkacat -C -b kafkabroker1 -t topic1 -e | kafkacat -P -b kafkabroker2 -t topic2
+
+5、配置
+kafkacat 使用的是librdkafka的配置，使用时可以通过 '-F'指定配置文件。
+比如 SASL_PLAINTEXT登录，新建一个配置文件, 如 kafka.conf
+
+security.protocol=SASL_PLAINTEXT
+sasl.mechanisms=PLAIN
+sasl.username=username
+sasl.password=pwd
+
+kafkacat -L -b kafkabroker -F kafka.conf
+
+
+---
+kafkacat -L -b kafkabroker
+kafkacat -L -b kafkabroker   -t adienTest2
+kafkacat -L -b kafkabroker   -t adienTest2
